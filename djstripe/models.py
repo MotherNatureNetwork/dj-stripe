@@ -365,9 +365,9 @@ class Customer(StripeCustomer):
         elif current_subscription and current_subscription.status != CurrentSubscription.STATUS_CANCELLED:
             # Stripe says customer has no subscription but we think they have one.
             # This could happen if subscription is cancelled from Stripe Dashboard and webhook fails
-            logger.debug('Cancelling subscription for %s' % self)
-            current_subscription.status = CurrentSubscription.STATUS_CANCELLED
-            current_subscription.save()
+            # logger.debug('Cancelling subscription for %s' % self)
+            # current_subscription.status = CurrentSubscription.STATUS_CANCELLED
+            # current_subscription.save()
             return current_subscription
 
     def update_plan_quantity(self, quantity, charge_immediately=False):
